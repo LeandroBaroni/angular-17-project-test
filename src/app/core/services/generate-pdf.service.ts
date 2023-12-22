@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+
 // import { TDocumentDefinitions } from 'pdfmake/interfaces.js';
 // import QRCode from 'qrcode';
 
@@ -10,14 +11,13 @@ interface IParamData {
   course: {
     id: string;
     name: string;
-  }
+  };
 }
 @Injectable({
   providedIn: 'root'
 })
 export class GeneratePdfService {
-
-  async handleGenerate (data: IParamData){
+  async handleGenerate(data: IParamData) {
     let ret = null;
     try {
       const fonts = {
@@ -38,8 +38,6 @@ export class GeneratePdfService {
       // });
 
       // const template: TDocumentDefinitions = {}
-    } catch (error) {
-
-    }
+    } catch (error) {}
   }
 }

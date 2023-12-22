@@ -8,9 +8,15 @@ import { ComponentCComponent } from './components/signal-test/component-c/compon
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ComponentAComponent, ComponentBComponent, ComponentCComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    ComponentAComponent,
+    ComponentBComponent,
+    ComponentCComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'angular-17-project-test';

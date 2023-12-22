@@ -15,15 +15,15 @@ export class ComponentCComponent {
   builder = inject(FormBuilder);
 
   protected form = this.builder.group({
-    name: [ '' ],
-    email: [ '' ]
+    name: [''],
+    email: [''],
   });
 
-  handleSubmit (){
+  handleSubmit() {
     const { name, email } = this.form.value;
 
-    this.user.update(user => {
-      return {...user, name, email}
-    })
+    this.user.update((user) => {
+      return { ...user, name, email };
+    });
   }
 }

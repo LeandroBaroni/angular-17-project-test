@@ -10,20 +10,20 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './component-b.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ComponentBComponent{
+export class ComponentBComponent {
   user = inject(signalUserService).user;
   builder = inject(FormBuilder);
 
   protected form = this.builder.group({
-    name: [ '' ],
-    email: [ '' ]
+    name: [''],
+    email: [''],
   });
 
-  handleSubmit (){
+  handleSubmit() {
     const { name, email } = this.form.value;
 
-    this.user.update(user => {
-      return {...user, name, email}
-    })
+    this.user.update((user) => {
+      return { ...user, name, email };
+    });
   }
 }

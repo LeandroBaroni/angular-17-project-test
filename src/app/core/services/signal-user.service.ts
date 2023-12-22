@@ -1,21 +1,21 @@
-import { Injectable, WritableSignal, signal } from "@angular/core";
-import { User } from "../models/user";
+import { Injectable, WritableSignal, signal } from '@angular/core';
+import { User } from '../models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class signalUserService {
   user: WritableSignal<User> = signal<User>({
     id: '',
     name: '',
-    email: ''
+    email: '',
   });
 
-  uploadUser (user: User){
+  uploadUser(user: User) {
     this.user.update(() => user);
   }
 
-  setUser (user: User){
+  setUser(user: User) {
     this.user.set(user);
   }
 }

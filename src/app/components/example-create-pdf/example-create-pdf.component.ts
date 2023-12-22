@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { GeneratePdfService } from "../../core/services/generate-pdf.service";
+import { Component } from '@angular/core';
+import { GeneratePdfService } from '../../core/services/generate-pdf.service';
 
 @Component({
   selector: 'app-example-create-pdf',
@@ -8,11 +8,10 @@ import { GeneratePdfService } from "../../core/services/generate-pdf.service";
   standalone: true,
 })
 export class ExampleCreatePdfComponent {
-
-  constructor(private generatePdf: GeneratePdfService){}
+  constructor(private generatePdf: GeneratePdfService) {}
   count = 1;
 
-  sum (){
+  sum() {
     this.count++;
   }
 

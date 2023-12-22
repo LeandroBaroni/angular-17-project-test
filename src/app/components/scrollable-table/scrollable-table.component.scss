@@ -2,8 +2,8 @@
   overflow-x: auto;
 }
 
-th:nth-child(-n+3),
-td:nth-child(-n+3) {
+th:nth-child(-n + 3),
+td:nth-child(-n + 3) {
   position: sticky;
   left: 0;
   z-index: 1;
