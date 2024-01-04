@@ -1,6 +1,7 @@
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { ExampleOptimizedImgComponent } from './components/example-optimized-img/example-optimized-img.component';
 import { ComponentAComponent } from './components/signal-test/component-a/component-a.component';
 import { ComponentBComponent } from './components/signal-test/component-b/component-b.component';
 import { ComponentCComponent } from './components/signal-test/component-c/component-c.component';
@@ -14,6 +15,8 @@ import { ComponentCComponent } from './components/signal-test/component-c/compon
     ComponentAComponent,
     ComponentBComponent,
     ComponentCComponent,
+    ExampleOptimizedImgComponent,
+    NgOptimizedImage
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

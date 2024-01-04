@@ -1,0 +1,6 @@
+<div class="p-4">
+  <img [src]="imgPath" alt="">
+  <img [ngSrc]="imgPath" width="48" height="48" alt="icon" priority />
+  <img [ngSrc]="imgPath" width="48" height="48" [ngSrcset]="'/assets/icons/loader.svg'" alt="icon" priority [loading]="'lazy'" />
+  <button class="mt-3 bg-red-500 p-2 rounded-md border-0" (click)="changeImg()">Mudar</button>
+</div>
