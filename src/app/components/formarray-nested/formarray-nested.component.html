@@ -1,0 +1,73 @@
+<div [formGroup]="form" class="border-2 rounded-md border-red-400 mt-4 p-4">
+  <div class="grid-rows-4 grid-flow-col gap-4">
+    <div class="col-span-6">
+      <div class="grid">
+        <label for="baseInit">BaseInit</label>
+        <input type="number" class="rounded-md border-2 border-x-cyan-900 w-auto p-4" formControlName="baseInit" />
+      </div>
+    </div>
+    <div class="col-span-6">
+      <div class="grid">
+        <label for="baseDuration">BaseDuration</label>
+        <input type="number" class="rounded-md border-2 border-x-cyan-900 w-auto p-4" formControlName="baseDuration" />
+      </div>
+    </div>
+    <div class="col-span-6">
+      <div class="grid">
+        <label for="budgetInit">BudgetInit</label>
+        <input type="number" class="rounded-md border-2 border-x-cyan-900 w-auto p-4" formControlName="budgetInit" />
+      </div>
+    </div>
+    <div class="col-span-6">
+      <div class="grid">
+        <label for="budgetDuration">BudgetDuration</label>
+        <input
+          type="number"
+          class="rounded-md border-2 border-x-cyan-900 w-auto p-4"
+          formControlName="budgetDuration"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+@if (!isLoading) {
+  <div class="mt-8">
+    @if (!formCustom) {
+      <p class="text-center">Sem formulário customizado</p>
+    } @else {
+      <div class="form" [formGroup]="formCustom">
+        <ng-container formArrayName="subItems">
+          @for (subItem of subItems.controls; track $index) {
+            <div class="grid-rows-4 grid-flow-col gap-4" [formGroupName]="$index">
+              <div class="grid-cols-6">
+                @if (subItems.controls[$index].get('title') && subItem.value?.title !== null) {
+                  <div class="grid">
+                    <label for="title">Titulo</label>
+                    <input
+                      formControlName="title"
+                      class="rounded-xl border-2 border-x-cyan-900 w-auto"
+                      placeholder="title"
+                    />
+                  </div>
+                }
+              </div>
+              <div class="grid-cols-6">
+                @if (subItems.controls[$index].get('stand') && subItem.value?.stand !== null) {
+                  <div class="grid">
+                    <label for="stand">Stand</label>
+                    <input
+                      formControlName="stand"
+                      class="rounded-xl border-2 border-x-cyan-900 w-auto"
+                      placeholder="stand"
+                    />
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </ng-container>
+      </div>
+    }
+  </div>
+}
