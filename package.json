@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run dev",
+    "dev": "ng serve -o --port 4220",
+    "stage": "ng serve -o --port 4210 --configuration staging",
     "build": "ng build",
+    "lint": "ng lint",
+    "prettier": "npx prettier . --check",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
