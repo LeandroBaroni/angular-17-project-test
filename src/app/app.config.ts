@@ -1,9 +1,37 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApplicationConfig, DEFAULT_CURRENCY_CODE, LOCALE_ID, importProvidersFrom } from '@angular/core';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, provideRouter } from '@angular/router';
+import { errorTailorConfig } from '@burand/angular';
+import { provideErrorTailorConfig } from '@ngneat/error-tailor';
+import { environment } from '../environments/environment';
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+import { ApiErrorInterceptor } from './core/interceptors/api-error.interceptor';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { UrlInterceptor } from './core/interceptors/url.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration()],
+  providers: [
+    provideRouter(routes),
+    provideClientHydration(),
+    provideErrorTailorConfig(errorTailorConfig),
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiErrorInterceptor, multi: true },
+    importProvidersFrom(
+      BrowserModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      RouterModule,
+      provideAuth(() => getAuth()),
+      provideFirestore(() => getFirestore()),
+      provideFirebaseApp(() => initializeApp(environment.firebase))
+    )
+  ]
 };

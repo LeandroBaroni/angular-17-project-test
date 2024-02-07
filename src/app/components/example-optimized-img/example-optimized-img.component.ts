@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './example-optimized-img.component.html'
 })
 export class ExampleOptimizedImgComponent {
-  imgPath = '/assets/icons/alert-triangle.svg'
+  imgPath = '../../../assets/icons/alert-triangle.svg';
 
   changeImg() {
     this.imgPath = '/assets/icons/star.svg';
