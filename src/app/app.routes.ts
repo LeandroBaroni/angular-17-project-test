@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { canActivateAuthenticated } from './core/guards/authenticated.guard';
 import { canActivateUnauthenticated } from './core/guards/unauthenticated.guard';
 
 export const routes: Routes = [
@@ -17,9 +16,13 @@ export const routes: Routes = [
 
   {
     path: '',
-    loadChildren: () => import('./routes/authenticated.routing').then(m => m.AuthenticatedRoutingModule),
-    canActivate: [canActivateAuthenticated]
+    loadChildren: () => import('./routes/authenticated.routing').then(m => m.AuthenticatedRoutingModule)
   },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./routes/authenticated.routing').then(m => m.AuthenticatedRoutingModule),
+  //   canActivate: [canActivateAuthenticated]
+  // },
 
   {
     path: '**',

@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IFormLoginProps } from '../../../core/interfaces/form.interface';
+import { InputEmailComponent } from '../../../forms/input-email/input-email.component';
 
 @Component({
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, InputEmailComponent]
 })
 export class LoginComponent {
   private formBuilder = inject(FormBuilder);
