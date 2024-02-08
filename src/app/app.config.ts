@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, provideRouter } from '@angular/router';
 import { errorTailorConfig } from '@burand/angular';
 import { provideErrorTailorConfig } from '@ngneat/error-tailor';
+import { provideEnvironmentNgxCurrency } from 'ngx-currency';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { ApiErrorInterceptor } from './core/interceptors/api-error.interceptor';
@@ -19,6 +22,14 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideErrorTailorConfig(errorTailorConfig),
+    provideEnvironmentNgxMask(),
+    provideEnvironmentNgxCurrency({
+      prefix: 'R$ ',
+      thousands: '.',
+      decimal: ',',
+      align: 'left',
+      allowNegative: false
+    }),
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
     { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
@@ -29,6 +40,7 @@ export const appConfig: ApplicationConfig = {
       BrowserAnimationsModule,
       HttpClientModule,
       RouterModule,
+      ToastrModule.forRoot(),
       provideAuth(() => getAuth()),
       provideFirestore(() => getFirestore()),
       provideFirebaseApp(() => initializeApp(environment.firebase))
