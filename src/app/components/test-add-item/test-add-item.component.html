@@ -1,0 +1,15 @@
+<div class="card">
+  <h1>{{ titulo }}</h1>
+
+  <form (ngSubmit)="adicionarItem()">
+    <input type="text" [(ngModel)]="novoItem" name="novoItem" />
+  </form>
+
+  <ul>
+    @for (item of itens; track item) {
+      <li>
+        {{ item }}
+      </li>
+    }
+  </ul>
+</div>
