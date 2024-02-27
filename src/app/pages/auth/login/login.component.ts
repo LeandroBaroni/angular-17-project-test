@@ -12,7 +12,7 @@ import { InputEmailComponent } from '../../../forms/input-email/input-email.comp
 export class LoginComponent {
   private formBuilder = inject(FormBuilder);
 
-  form: FormGroup<IFormLoginProps> = this.formBuilder.group({
+  formGroup: FormGroup<IFormLoginProps> = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.min(6)]]
   });
@@ -22,7 +22,7 @@ export class LoginComponent {
   handleSubmit() {
     this.isSubmitting = true;
     try {
-      if (this.form.invalid) {
+      if (this.formGroup.invalid) {
         throw new Error('Preencha todos os campos');
       }
     } catch (error) {

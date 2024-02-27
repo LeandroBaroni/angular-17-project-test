@@ -84,9 +84,17 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/flatpickr/dist/flatpickr.min.css"
+            ],
+            "scripts": [
+              "node_modules/flatpickr/dist/flatpickr.min.js"
+            ]
           }
         }
       }

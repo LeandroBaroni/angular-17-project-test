@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "prettier": "npx prettier . --check",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "jasmine-browser-runner runSpecs",
+    "test-jasmine": "npm test"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "eslint-plugin-prettier": "^5.1.1",
     "express": "^4.18.2",
     "firebase": "^10.8.0",
+    "flatpickr": "^4.6.13",
     "ngx-currency": "^17.0.0",
     "ngx-mask": "^17.0.4",
     "ngx-toastr": "^18.0.0",
@@ -58,6 +60,7 @@
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
     "@types/uuid": "^9.0.8",
+    "jasmine-browser-runner": "^2.3.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
