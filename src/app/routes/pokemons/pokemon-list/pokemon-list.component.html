@@ -1,0 +1,10 @@
+<div class='p-4'>
+  <div class='flex flex-col'>
+    @if(!isLoading) {
+      @for(pokemon of pokemons; track $index) {
+<!--        <app-poke-card [pokemon]='pokemon' />-->
+        <p>{{pokemon.name}}</p>
+      }
+    }
+  </div>
+</div>

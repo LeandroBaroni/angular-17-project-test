@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { signalUserService } from '../../../core/services/signal-user.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-
+import { signalUserService } from '../../../../../core/services/signal-user.service';
 @Component({
-  selector: 'app-component-b',
+  selector: 'app-component-a',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './component-b.component.html',
-  styleUrl: './component-b.component.css',
+  templateUrl: './component-a.component.html',
+  styleUrl: './component-a.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ComponentBComponent {
+export class ComponentAComponent {
   user = inject(signalUserService).user;
   builder = inject(FormBuilder);
 

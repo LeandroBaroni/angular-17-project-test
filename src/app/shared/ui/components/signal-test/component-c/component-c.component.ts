@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { signalUserService } from '../../../core/services/signal-user.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { signalUserService } from '../../../../../core/services/signal-user.service';
 
 @Component({
   selector: 'app-component-c',
