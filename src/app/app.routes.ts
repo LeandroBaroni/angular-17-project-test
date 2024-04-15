@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { canActivateUnauthenticated } from './core/guards/unauthenticated.guard';
 
 export const routes: Routes = [
   {
@@ -10,8 +9,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    loadChildren: () => import('./routes/unauthenticated.routing').then(m => m.UnauthenticatedRoutingModule),
-    canActivate: [canActivateUnauthenticated]
+    loadChildren: () => import('./routes/unauthenticated.routing').then(m => m.UnauthenticatedRoutingModule)
   },
 
   {
