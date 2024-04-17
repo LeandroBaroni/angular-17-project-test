@@ -6,8 +6,6 @@
     "start": "npm run dev",
     "dev": "ng serve -o --port 4220",
     "stage": "ng serve -o --port 4210 --configuration staging",
-    "start": "npm run dev",
-    "dev": "ng serve -o --port 4200",
     "build": "ng build",
     "lint": "ng lint",
     "prettier": "npx prettier . --check",

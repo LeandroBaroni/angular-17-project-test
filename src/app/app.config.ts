@@ -5,7 +5,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, provideRouter } from '@angular/router';
+import { RouterModule, provideRouter, withComponentInputBinding } from '@angular/router';
 import { errorTailorConfig } from '@burand/angular';
 import { provideErrorTailorConfig } from '@ngneat/error-tailor';
 import { provideEnvironmentNgxCurrency } from 'ngx-currency';
@@ -19,7 +19,7 @@ import { UrlInterceptor } from './core/interceptors/url.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(),
     provideErrorTailorConfig(errorTailorConfig),
     provideEnvironmentNgxMask(),

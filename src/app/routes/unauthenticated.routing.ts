@@ -9,6 +9,13 @@ const routes: Routes = [
   {
     path: 'register',
     loadComponent: () => import('../pages/auth/register/register.component').then(c => c.RegisterComponent)
+  },
+  {
+    path: 'params/:pathId',
+    loadComponent: () =>
+      import('../routes/read-params-with-input/read-params-with-input.component').then(
+        p => p.ReadParamsWithInputComponent
+      )
   }
 ];
 
